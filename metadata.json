@@ -1,0 +1,6 @@
+{
+  "name": "MQD Medicine Quick Delivery",
+  "description": "10-Min Quick-Commerce Medicine Delivery Ecosystem for Ujjain (Customer, Pharmacy, Rider & Admin)",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
