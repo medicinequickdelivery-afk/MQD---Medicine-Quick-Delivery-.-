@@ -1,0 +1,28 @@
+workflows:
+  android-debug-apk:
+    name: Android Debug APK Build
+    max_build_duration: 60
+    instance_type: mac_mini_m1
+    environment:
+      android_m2_repository: true
+      java: 17
+    scripts:
+      - name: Set up local.properties and Gradle wrapper
+        script: |
+          echo "sdk.dir=$ANDROID_SDK_ROOT" > local.properties
+          if [ ! -f gradlew ]; then
+            gradle wrapper
+          fi
+          chmod +x gradlew
+      - name: Build Debug APK
+        script: |
+          ./gradlew assembleDebug
+    artifacts:
+      - app/build/outputs/apk/**/*.apk
+    publishing:
+      email:
+        recipients:
+          - medicinequickdelivery@gmail.com
+        notify:
+          failure: true
+          success: true
